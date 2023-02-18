@@ -1,0 +1,21 @@
+fatload mmc 0:1 ${kernel_addr_r} Image
+fatload mmc 0:1 ${fdt_addr} bcm2837-rpi-3-b.dtb
+setenv bootargs earlyprintk console=ttyS1,115200n8 rootwait root=/dev/mmcblk0p2 rootfstype=ext4 noinitrd
+booti ${kernel_addr_r} - ${fdt_addr}
+
+
+
+
+
+
+
+
+ make ARCH=arm CROSS_COMPILE=aarch64-linux-gnu- distclean
+  424  make ARCH=arm CROSS_COMPILE=aarch64-linux-gnu- rpi_3_defconfig
+  425  make ARCH=arm CROSS_COMPILE=aarch64-linux-gnu- menuconfig
+  426  make ARCH=arm CROSS_COMPILE=aarch64-linux-gnu- -4
+  427  make ARCH=arm CROSS_COMPILE=aarch64-linux-gnu- -j4
+
+
+make ARCH=arm CROSS_COMPILE=aarch64-linux-gnu- INSTALL_MOD_PATH=/home/aman/Desktop/busybox_rfs/RFS_Static/ modules_install
+

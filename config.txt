@@ -1,0 +1,9 @@
+arm_64bit=1
+kernel=u-boot.bin
+enable_uart=1
+console=ttyUSB0,115200
+core_freq=250
+device_tree_address=0x100
+device_tree_end=0x8000
+dtparam=i2c_arm=on
+dtparam=spi=on
